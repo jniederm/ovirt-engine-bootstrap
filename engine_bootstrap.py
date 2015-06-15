@@ -24,7 +24,7 @@ print 'Updating cluster'
 cluster = api.clusters.get(name='Default')
 cluster.get_version().set_major(3)
 cluster.get_version().set_minor(6)
-cluster.set_cpu(params.CPU(id='Intel Haswell Family'))
+cluster.set_cpu(params.CPU(id='Intel Haswell-noTSX Family'))
 cluster.update()
 print 'Cluster updated'
 
@@ -51,7 +51,7 @@ storageDomain = api.storagedomains.get('Domain1')
 if storageDomain is None:
     storageDomain = api.storagedomains.add(
         params.StorageDomain(name='Domain1', host=host, type_='data', storage=params.Storage(
-            type_='nfs', address='192.168.122.1', path="/home/jakub/exported-nfs"
+            type_='nfs', address='192.168.122.1', path="/home/jakub/nfs1/d1", nfs_version="V4"
         ))
     )
     print 'Storage domain created'
