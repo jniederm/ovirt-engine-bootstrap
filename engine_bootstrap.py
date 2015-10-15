@@ -4,7 +4,7 @@ import time
 from ovirtsdk.xml import params
 from ovirtsdk.api import API
 
-url = 'http://localhost:8080'
+url = 'http://localhost:8080/ovirt-engine/api'
 username = 'admin@internal'
 password = 'a'
 
