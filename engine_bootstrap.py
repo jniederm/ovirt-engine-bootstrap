@@ -44,7 +44,7 @@ def createStorageDomain(api, host, name, path):
     storageDomain = api.storagedomains.get(name)
     if storageDomain is None:
         storageDomain = api.storagedomains.add(
-            params.StorageDomain(name=name, host=host, type_='data', storage=params.Storage(
+            params.StorageDomain(name=name, host=host, type_='data', storage=params.HostStorage(
                 type_='nfs', address='192.168.122.1', path=path, nfs_version="V4"
             ))
         )
@@ -77,9 +77,9 @@ def createHost(api, name, ipAddress):
 def updateCluster(api):
     print 'Updating cluster'
     cluster = api.clusters.get(name='Default')
-    cluster.get_version().set_major(3)
-    cluster.get_version().set_minor(6)
-    cluster.set_cpu(params.CPU(id='Intel Haswell-noTSX Family'))
+    cluster.get_version().set_major(4)
+    cluster.get_version().set_minor(0)
+    cluster.set_cpu(params.Cpu(name='Intel Haswell-noTSX Family'))
     cluster.update()
     print 'Cluster updated'
 
@@ -87,8 +87,8 @@ def updateCluster(api):
 def updateDataCenter(api):
     print 'Updating data center'
     dc = api.datacenters.get(name='Default')
-    dc.get_version().set_major(3)
-    dc.get_version().set_minor(6)
+    dc.get_version().set_major(4)
+    dc.get_version().set_minor(0)
     dc.update()
     print 'Data center updated'
     return dc
