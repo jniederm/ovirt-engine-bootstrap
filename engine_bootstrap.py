@@ -25,7 +25,7 @@ def main():
 
     updateCluster(api)
 
-    host = createHost(api, 'Host1', '192.168.122.137')
+    host = createHost(api, 'Host1', '192.168.122.203')
 
     storageDomain = createStorageDomain(api, host, 'Domain1', '/home/jakub/nfs1/d1')
 
