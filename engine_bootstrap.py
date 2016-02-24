@@ -34,7 +34,7 @@ def main():
 
 def attachDomainToDc(dc, storageDomain):
     print 'Attaching storage domain to datacenter'
-    dc.storagedomains.add(storageDomain)
+    dc.storagedomains.add(params.StorageDomain(id=storageDomain.id))
     dc.update()
     print 'Storage domain attached'
 
